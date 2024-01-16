@@ -1,0 +1,226 @@
+<!-- Day 2
+
+1. What is an emmet?
+   VS code madhe use hota./It is use in VS code.
+   It bascially generated a code for u inside vs code.
+
+2. what is difference between this 2 cdn links?
+   <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+   <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+
+The first set of CDN links development madhe use hota jevha apan app create karto thevha.
+Ani ithe tula errors, warning veregre show hota m easily apan change karu sakto according.
+So hey apan jevha app create kartoy thevha use karycha
+
+The second set of CDN links is for production means jevha apla app ready ahe create karun
+ani ata to live karycha ahe thevha ani te aplyla code la minified, bundle,
+unnecessary ghost remove karta. Ani ithe error warnings show nahi karat developer la
+so developer cannot understand.
+So hey apan jevha app create karun jhalay ani ata te live karych ahe thevha use karych
+
+3. Order of links matter?
+   Yes,
+   <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+   <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+   <script src="script.js"></script>
+
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="script.js"></script>
+
+4. Remove this warning?
+
+Warning: Each child in a list should have a unique "key" prop.
+
+Check the top-level render call using <div>. See https://reactjs.org/link/warning-keys for more information.
+at h1
+
+Solution:
+
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+
+use this cdn files at the end of body
+
+5. What is Production Ready app?
+   Before our app going to production we need to do lots of things
+
+1. We need to optimize it.
+1. Bundle everything.
+1. Remove unnecessary things like comments,console.
+1. Minified our code.
+1. Need to compress it.
+1. Optimize it(means: to make as perfect, effective, or functional as possible)
+1. We need to do cache.
+
+###To do all things we need packages. And this packages makes our app faster.
+
+6. What is NPM?
+   Official: https://www.npmjs.com/
+1. Npm does not stand for node package manager (u can see in offical website).
+1. NPM does not have a full form.
+1. NPM manages packages behind the sceens.
+1. It is a standard repository for all pacakges.
+1. Any pacakges u want to include in ur project u can use npm.
+1. All packages,library,utility u need and hosted in npm and npm manages all that for u in ur project
+1. Infact we u write create react app it automatically has npm in that u don't have to configure it.
+1. Npm will manges packages that will install in our project.
+1. npm will take care what is the version of that package.
+
+1. What is Dependency?
+   Packages are also known as dependency same cha ahe dhoni(same) pan
+
+1. What is package.json file?
+1. It is configuration for npm.
+1. It keeps the tract of version what package is install in our project.
+1. It maintain the configuration of all packages
+
+1. What is package-lock.json file?
+1. It keeps the exact of exact version of the pacakge/dependency
+1. It keeps the record of every small things install in your project.
+1. aplyla package la lock karta bcoz m jar update jhala tar m problem honar
+
+What is ^(Caret) and ~(Tilde)?
+^(Caret) means when new version comes it will automatically upadtes to minor means small
+~(Tilde) means when new version comes it will automatically updates to major means big
+
+9. Difference between package.json and package-lock.json?
+   package.json: keeps the approx version of package we install in our project.
+   pacakge-lock.json: keeps the exact version of package we install in our project.
+
+##Install Dependency in our project
+##The most important package which we are going to use is bundler.
+
+10. Bundler
+1. Our whole code need to be bundle together like HTMl,css,js files everything.
+1. our whole code need to be minified, cache, compressed, clean before send it to production.
+1. All this things are done by bundler.
+1. Webpack,parcel,vite,browserify, roll up, ESBuild, etc
+1. So bundler packages our app/ bundle our app and shift to production.
+1. For example: when we write create react app behind the sceens uses
+   webpack bundler to build things up.
+
+\*\*Note: All bundler are same. But they work differently. We are going to use parcel.
+
+11. What is Transitive Dependency
+    Means 1 ghost dusrya varti depend ahe ani te dusrya varti depend ahe ani hey pan dusrya varti depend
+    package1 > depend on > packge 2 > depend on > package 3 > ...
+    So one pacakge/dependecy on another pacakge/dependency and this is depend on another.
+    Eg: Our project is depend on parcel and parcel is depend on lots of other things and this things
+    are also depend on another things.
+
+12. What is Parcel?
+13. Parcel has its own dependency.
+14. Parcel cannot do anything on own there are lots of things(package) which help parcel to do it.
+15. Parcel is a bundler.
+16. Parcel creates a local server for your project. It host our app to local server.
+17. It automatically refreshing our page. When we save our code it auto reload it on browser
+    this is done bcoz of HMR (Hot Module Replacement).
+18. Parcel uses file watching algorithm(written in C++).
+    means it read our code. keeps an eye on every files.
+19. Parcel build our app faster because it is doing caching.
+    Where it is doing caching?
+    parcel-cache folder ahe te bgh.
+20. Parcel do image optimization.
+    means:
+    (process of creating and delivering high-quality images in the right format,
+    dimension, and resolution for whatever device is accessing them,
+    all while keeping the smallest possible file size.)
+21. Parcel will minified our code.
+22. Parcel will do bundle our code.
+23. Parcel will also compress our files so that we can moved to production.
+    It will remove all white spaces(extra space astat te).
+24. when we do npx create app tithe pan bts madhe parcel use hota.
+25. Parcel uses consistency hashing.
+26. It does code splitting for you.
+27. It does differential bundling.
+    means: when u r app will be hosted
+    ur app can be open on old browser, chrome, interet explorer, firefox, etc
+    so parcel will take care of this and parcel will give u differential bundling to your app
+    so that your app can work smoothly on anywhere.
+    parcel will give u different bundler to work on different types of app, browsers.
+28. Diagnostics
+    means: If you make an error in your code or configuration,
+    Parcel displays beautiful diagnostics in your terminal and in the browser.
+29. Tree Shaking - means remove unnecessary code for u
+    Official Websites: https://parceljs.org/
+
+##React uses a lot of other things to make our app faster, optimize scalable etc
+
+13. cache means?
+    Hardware or software that is used to store something, usually data,
+    temporarily in a computing environment.
+    It is a small amount of faster, more
+    expensive memory used to improve the performance of recently or frequently accessed data.
+
+14. What is Babel?
+    It is normal js pacakge
+    It job is to tranpiled our jsx code that react understood
+
+15. What is CORS?
+    eg: 1 library ahe tyacha madhe khup jaan books gheun jatat pan mi asa v4 kela
+    ki mala library ajun kadyche ahet lok javal cha thikani books gheun jatil
+    so main ahe tyala orgin server boltat
+    jo javal/franchesis cha ahe tyala bolnar CDN edge server
+    jo delivery pass kar rahe hai vo CDN
+    Crossorgin ch kaam ahe je user authorize ahe tyanach books denar.
+    So crossorigin job is to check the user is authorize/authenticate or not ani jar authenticate
+    nasel tar it will give u an error.
+
+16. When we write js we don't put cdn but when we write react why we use/put cdn links
+    When writing plain JavaScript, you may not need a CDN because
+    it's a core language supported by browsers.
+    React, being a library, is often distributed through CDNs for easier integration,
+    faster loading, and version control in web projects.
+
+17. What is NPX?
+    jar tujhi 1 library ahe te tu assume kar te npm ahe
+    m tujha library madhe mazine nahi ahe m te tula banvavi lagnar
+    so instead of creating it u can borrow it from someone
+    so apan npx borrow kartoy npm madhun
+    run packages without installing it
+    which allows us to run JavaScript packages without installing it
+    npx is a tool that comes with Node.js, and it allows you to run Node.js packages (commands) directly without installing them globally.
+
+**\*\*\*\***\*\*\*\***\*\*\*\***\***\*\*\*\***\*\*\*\***\*\*\*\***End here\***\*\*\*\*\*\*\***\*\*\***\*\*\*\*\*\*\***\*\*\*\***\*\*\*\*\*\*\***\*\*\***\*\*\*\*\*\*\***
+
+HomeWork Day 2:
+
+1. How many package.json and package-lock.json is there in our production code
+2. Do we put node_module in github and do we put package.json and package-Lock.json?
+3. Which files we don't put on github
+4. je pan apan files regenerate karu sakto te apan github varti nahi takat
+5. What is dB dependency and dev dependency
+6. What is parcel cache
+7. What is Hot Module Replacement/What is Hot Reloading (same nahi ahe)
+8. What are 5 superpowers of parcel? list any 3 in details
+9. What should be add and not add in gitignore
+10. Task:
+    .gitignore file create and push in github
+
+Task:
+
+Create github acc SSH key n all do
+
+Make this github repository
+
+git init
+
+Now u have main branch as Master u have to make it as main
+
+git branch -M main
+
+Create README.md file
+
+Push all the code on github
+
+git add .
+
+git commit -m "mesage here"
+
+Now u push but it does not know the remote
+
+git remote add origin git@github.com:samidha3199/React-JS.git -->
